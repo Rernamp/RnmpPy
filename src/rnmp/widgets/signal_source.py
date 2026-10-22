@@ -14,7 +14,7 @@ from dataclasses import dataclass
 
 import marimo as mo
 
-from utils import generators
+from rnmp.utils import generators
 
 
 @dataclass(frozen=True)
