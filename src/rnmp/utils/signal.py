@@ -22,11 +22,15 @@ def generate_noise(signal_shape, signal_power, snr_db, rng=None):
     noise = rng.normal(loc=0.0, scale=noise_std, size=signal_shape)
     return noise
 
+
 def add_noise(signal, target_snr_db):
-    signal_power = np.mean(np.abs(signal) ** 2)
+    signal_power_linear = signal_power(signal)
     snr_linear = 10 ** (target_snr_db / 10)
-    noise_power = signal_power / snr_linear
+    noise_power = signal_power_linear / snr_linear
     noise_sigma = np.sqrt(noise_power)
     noise = np.random.normal(0, noise_sigma, size=signal.shape)
 
     return signal + noise
+
+def signal_power(signal):
+    return np.mean(np.abs(signal) ** 2)
