@@ -15,6 +15,11 @@ dependencies = [
 [project.optional-dependencies]
 widgets = [
     "marimo>=0.23.15",
+    "plotly>=7.0.0",
+]
+# rnmp.doa.video; also needs ffmpeg in PATH
+video = [
+    "matplotlib>=3.11.1",
 ]
 
 [build-system]
